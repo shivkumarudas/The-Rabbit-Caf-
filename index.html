@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Rabbit Café | Berlin Mitte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The Rabbit Café – a cozy coffee & plant shop in Berlin Mitte serving specialty coffee, Asian & Western bites, and brunch."
+  />
+
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f7f3ed;
+      --bg-alt: #ffffff;
+      --text: #222222;
+      --accent: #e0865c;
+      --accent-dark: #c36a43;
+      --border-soft: #e3d6c6;
+      --muted: #777777;
+      --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fff9f3 0, #f7f3ed 55%);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 243, 237, 0.9);
+      border-bottom: 1px solid rgba(227, 214, 198, 0.5);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 30% 30%, #ffe7cf, #f1c096);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 1.05rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.3rem 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      border: none;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.09s ease, box-shadow 0.09s ease,
+        background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--accent) 0%,
+        var(--accent-dark) 100%
+      );
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(224, 134, 92, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px rgba(224, 134, 92, 0.5);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 4rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 0.95rem;
+    }
+
+    /* Hero */
+
+    #hero {
+      padding-top: 3.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.2vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      max-width: 490px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+      background: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-alt);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .hero-image {
+      /* TODO: replace src with real image from Google Maps / Instagram */
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-rating {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      background: rgba(34, 34, 34, 0.88);
+      color: #fff;
+      border-radius: 18px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-float-card {
+      position: absolute;
+      left: -12px;
+      bottom: -26px;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.9rem;
+      font-size: 0.8rem;
+      box-shadow: var(--shadow-soft);
+      max-width: 220px;
+    }
+
+    .hero-float-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.1rem;
+      align-items: start;
+      margin-top: 1.75rem;
+    }
+
+    .about-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .about-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+    }
+
+    .about-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .about-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+    }
+
+    .about-photo {
+      border-radius: 18px;
+      overflow: hidden;
+      height: 120px;
+      background: #ddd;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    /* Menu */
+
+    .menu-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      margin-top: 1.8rem;
+      align-items: start;
+    }
+
+    .menu-category {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+      margin-bottom: 0.9rem;
+    }
+
+    .menu-category-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+    }
+
+    .menu-item span {
+      display: block;
+    }
+
+    .menu-item-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .menu-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+
+    .menu-side-card {
+      background: #1f1b18;
+      color: #fdf8f1;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .menu-side-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .menu-side-text {
+      font-size: 0.85rem;
+      color: #d2c3b0;
+    }
+
+    /* Gallery */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .gallery-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-image {
+      height: 170px;
+      background: #ddd;
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 0.6rem 0.75rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Visit */
+
+    .visit-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+
+    .visit-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.4rem 1.4rem;
+      border: 1px solid rgba(227, 214, 198, 0.9);
+    }
+
+    .visit-row {
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .visit-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.25rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .map-placeholder {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #f1e5d6, #e4d0bc);
+      min-height: 220px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .map-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .map-text {
+      font-size: 0.85rem;
+      color: #4e3f32;
+    }
+
+    .map-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(227, 214, 198, 0.7);
+      padding: 1.8rem 1.25rem 2rem;
+      background: #f3ebe1;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+      }
+      .nav-inner {
+        justify-content: space-between;
+      }
+      .hero-grid,
+      .about-grid,
+      .menu-layout,
+      .visit-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-media {
+        order: -1;
+      }
+      .hero-card {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 3.2rem 1rem;
+      }
+      #hero {
+        padding-top: 3rem;
+      }
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-float-card {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="nav-inner">
+        <a href="#hero" class="logo">
+          <div class="logo-icon"><img src="icon.jpg" alt=""></div>
+          <div>
+            <div class="logo-text-main">The Rabbit Café</div>
+            <div class="logo-text-sub">Berlin · Mitte</div>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#visit">Visit</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta">
+          <a
+            href="https://maps.app.goo.gl/wnjnH1vtk4BV8KQG7"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+          >
+            Find us
+          </a>
+          <a
+            href="https://www.instagram.com/therabbitcafeberlin/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="section-label">Coffee · Brunch · Plants</div>
+            <h1 class="hero-title">
+              Welcome to <span>The Rabbit Café</span>
+            </h1>
+            <p class="hero-tagline">
+              A cozy coffee & plant shop in Berlin’s Mitte district, serving
+              specialty coffee, Asian & Western bites, and laid-back vibes.
+              Dog-friendly & brunch-approved.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-primary">
+                View menu
+              </a>
+              <a
+                href="https://maps.app.goo.gl/wnjnH1vtk4BV8KQG7"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-ghost"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="pill">☕ Specialty coffee & homemade drinks</div>
+              <div class="pill">🥪 Egg drop sandwiches & brunch plates</div>
+              <div class="pill">🌿 Café + plant shop ambience</div>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <div class="hero-card">
+              <!-- HERO IMAGE – replace src with real Rabbit Café image URL -->
+              <img
+                class="hero-image"
+                src="rabbit-brunch-table.jpg"
+                alt="Interior of The Rabbit Café with plants and cozy seating"
+              />
+
+              <div class="hero-badge">
+                <span>🐕‍🦺</span>
+                <span>Dog-friendly spot</span>
+              </div>
+
+              <div class="hero-rating">
+                <span>★ 4.8</span>
+                <span>1030+ reviews</span>
+              </div>
+
+              <div class="hero-float-card">
+                <div class="hero-float-title">Popular right now</div>
+                <div style="font-size: 0.8rem; color: #555;">
+                  Egg drop brioche, iced mocha with vanilla ice cream, and
+                  avocado toast.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-inner">
+          <div class="section-label">About</div>
+          <h2 class="section-title">A hidden gem in Berlin Mitte</h2>
+          <p class="section-subtitle">
+            The Rabbit Café is tucked away on Strelitzer Str. 62, just a short
+            walk from some of Berlin’s most vibrant streets. Inside, you’ll find
+            specialty coffee, a jungle of plants, and a relaxed neighborhood
+            crowd.
+          </p>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Part coffee house, part plant shop – The Rabbit Café is designed
+                to feel like your cozy living room, but with better coffee. Grab
+                a seat by the window, work on your laptop, or just hang out with
+                friends over brunch.
+              </p>
+              <p>
+                The menu mixes comforting Asian & Western flavors: think
+                fluffy egg drop sandwiches, avocado toast, Korean-inspired bowls
+                and an ever-changing selection of cakes and sweets.
+              </p>
+              <p>
+                And yes, you might meet a couple of very photogenic Shiba Inus
+                while you’re here. 🐕
+              </p>
+
+              <div class="about-highlights">
+                <div class="about-card">
+                  <div class="about-card-title">Specialty coffee</div>
+                  <div class="about-card-body">
+                    Double espressos, pour-over filter, iced mocha with vanilla
+                    ice cream, creamy caramel macchiato and more.
+                  </div>
+                </div>
+                <div class="about-card">
+                  <div class="about-card-title">Comfort brunch</div>
+                  <div class="about-card-body">
+                    Egg drop sandwich, avocado toast, mushroom garlic toast and
+                    rotating brunch specials on weekends.
+                  </div>
+                </div>
+                <div class="about-card">
+                  <div class="about-card-title">Green corner</div>
+                  <div class="about-card-body">
+                    Surrounded by lush houseplants and warm wood. A calm nook in
+                    the middle of buzzing Mitte.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="about-photo-grid">
+                <!-- Replace these src values with real image URLs from the Maps listing -->
+                <div class="about-photo">
+                  <img
+                    src="rabbit-interior-1.jpg"
+                    alt="Cozy interior of The Rabbit Café with plants"
+                  />
+                </div>
+                <div class="about-photo">
+                  <img
+                    src="rabbit-food-1.jpg"
+                    alt="Egg drop sandwich served on brioche at The Rabbit Café"
+                  />
+                </div>
+                <div class="about-photo">
+                  <img
+                    src="rabbit-coffee-1.jpg"
+                    alt="Latte art at The Rabbit Café"
+                  />
+                </div>
+                <div class="about-photo">
+                  <img
+                    src="rabbit-exterior-1.png"
+                    alt="Street view of The Rabbit Café in Berlin Mitte"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MENU -->
+      <section id="menu">
+        <div class="section-inner">
+          <div class="section-label">Menu</div>
+          <h2 class="section-title">What we serve</h2>
+          <p class="section-subtitle">
+            Here’s a sample structure for your menu section. You can plug in
+            your real items and descriptions — prices are intentionally left out
+            so you can update them anytime.
+          </p>
+
+          <div class="menu-layout">
+            <div>
+              <div class="menu-category">
+                <div class="menu-category-title">Coffee & Hot Drinks</div>
+
+                <div class="menu-item">
+                  <span>Double espresso</span>
+                  <span class="menu-item-note">
+                    Single origin beans, rich and intense.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Flat white / Cappuccino</span>
+                  <span class="menu-item-note">
+                    Silky milk, classic café staple.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Caramel macchiato</span>
+                  <span class="menu-item-note">
+                    Espresso, milk, caramel – pure comfort.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Hot chocolate</span>
+                  <span class="menu-item-note">
+                    Creamy & cozy, with optional whipped cream.
+                  </span>
+                </div>
+              </div>
+
+              <div class="menu-category">
+                <div class="menu-category-title">Iced & Specialty Drinks</div>
+
+                <div class="menu-item">
+                  <span>Iced mocha with vanilla ice cream</span>
+                  <span class="menu-item-note">
+                    Signature drink, dangerously addictive.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Filter coffee (seasonal beans)</span>
+                  <span class="menu-item-note">
+                    Rotating single origins, brewed slow.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Smoothies</span>
+                  <span class="menu-item-note">
+                    Fruity, refreshing blends – ask for today’s flavors.
+                  </span>
+                </div>
+              </div>
+
+              <div class="menu-category">
+                <div class="menu-category-title">Brunch & Bites</div>
+
+                <div class="menu-item">
+                  <span>Egg drop brioche</span>
+                  <span class="menu-item-note">
+                    Fluffy scrambled eggs on thick buttery bread.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Avocado toast</span>
+                  <span class="menu-item-note">
+                    Sourdough, smashed avo, toppings change with the season.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Mushroom garlic toast</span>
+                  <span class="menu-item-note">
+                    Garlicky, umami-loaded mushrooms on toast.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Korean beef with rice</span>
+                  <span class="menu-item-note">
+                    Warm bowl with marinated beef & veggies.
+                  </span>
+                </div>
+              </div>
+
+              <div class="menu-category">
+                <div class="menu-category-title">Sweets & Bakery</div>
+
+                <div class="menu-item">
+                  <span>Cakes of the day</span>
+                  <span class="menu-item-note">
+                    Rotating selection – sometimes Lotus cheesecake, banana
+                    bread, and more.
+                  </span>
+                </div>
+
+                <div class="menu-item">
+                  <span>Croissants & pastries</span>
+                  <span class="menu-item-note">
+                    Perfect with your morning coffee.
+                  </span>
+                </div>
+              </div>
+
+              <p class="menu-note">
+                Tip: if you want to connect this section to an actual online
+                menu (PDF or ordering site), just turn the category titles into
+                links.
+              </p>
+            </div>
+
+            <aside class="menu-side-card">
+              <div class="menu-side-title">Hours</div>
+              <p class="menu-side-text">
+                <strong>Monday – Thursday:</strong> 09:00 – 18:00<br />
+                <strong>Friday:</strong> 09:00 – 19:00<br />
+                <strong>Saturday:</strong> 10:00 – 19:00<br />
+                <strong>Sunday:</strong> 10:00 – 18:00
+              </p>
+
+              <div style="height: 1px; background: #3b3127; margin: 0.9rem 0;">
+              </div>
+
+              <div class="menu-side-title">Good to know</div>
+              <ul
+                style="
+                  margin-top: 0.4rem;
+                  padding-left: 1.1rem;
+                  font-size: 0.82rem;
+                  color: #d2c3b0;
+                "
+              >
+                <li>Walk-ins welcome, weekends can get busy.</li>
+                <li>Dog-friendly – your pup is invited too.</li>
+                <li>Vegetarian options available.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery">
+        <div class="section-inner">
+          <div class="section-label">Gallery</div>
+          <h2 class="section-title">A peek inside</h2>
+          <p class="section-subtitle">
+            Replace the images below with the same photos you’re already using
+            on Google Maps / Instagram. Just keep the filenames or update the
+            <code>src</code> paths.
+          </p>
+
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="rabbit-inside-main.png"
+                  alt="Main interior view of The Rabbit Café"
+                />
+              </div>
+              <div class="gallery-caption">
+                Cozy seating, natural light and plenty of plants.
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="rabbit-shiba.jpg"
+                  alt="A Shiba Inu lying inside The Rabbit Café"
+                />
+              </div>
+              <div class="gallery-caption">
+                Sometimes, you share the café with a very chill Shiba Inu.
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="rabbit-brunch-table.jpg"
+                  alt="Brunch dishes and coffee on a table at The Rabbit Café"
+                />
+              </div>
+              <div class="gallery-caption">
+                Brunch spread: egg drop, toast, salads and iced drinks.
+              </div>
+            </article>
+
+            <article class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="rabbit-exterior-sign.png"
+                  alt="Exterior sign of The Rabbit Café in Berlin"
+                />
+              </div>
+              <div class="gallery-caption">
+                Street-side view on Strelitzer Str. 62, 10115 Berlin.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISIT / CONTACT -->
+      <section id="visit">
+        <div class="section-inner">
+          <div class="section-label">Visit</div>
+          <h2 class="section-title">Come say hi</h2>
+          <p class="section-subtitle">
+            Drop by for a quick espresso, slow brunch or a coffee date with
+            friends. You’ll find us right in the heart of Berlin Mitte.
+          </p>
+
+          <div class="visit-layout">
+            <div class="visit-card">
+              <div class="visit-row">
+                <div class="visit-label">Address</div>
+                <div>
+                  The Rabbit Café<br />
+                  Strelitzer Str. 62<br />
+                  10115 Berlin, Germany
+                </div>
+              </div>
+
+              <div class="visit-row">
+                <div class="visit-label">Contact</div>
+                <div>
+                  Phone: <a href="tel:+493044032823">+49 30 44032823</a><br />
+                  Instagram:
+                  <a
+                    href="https://www.instagram.com/therabbitcafeberlin/"
+                    target="_blank"
+                    rel="noopener"
+                    >@therabbitcafeberlin</a
+                  >
+                </div>
+              </div>
+
+              <div class="visit-row">
+                <div class="visit-label">Opening hours</div>
+                <div class="hours-grid">
+                  <span>Mon – Thu</span><span>09:00 – 18:00</span>
+                  <span>Friday</span><span>09:00 – 19:00</span>
+                  <span>Saturday</span><span>10:00 – 19:00</span>
+                  <span>Sunday</span><span>10:00 – 18:00</span>
+                </div>
+              </div>
+
+              <div class="visit-row">
+                <div class="visit-label">Notes</div>
+                <div style="font-size: 0.85rem; color: var(--muted);">
+                  • No reservation needed for coffee, but weekends can be busy –
+                  arrive early for brunch.<br />
+                  • Well-behaved dogs are welcome.<br />
+                  • Card payments accepted.
+                </div>
+              </div>
+            </div>
+
+            <div class="map-placeholder">
+              <div>
+                <div class="map-title">Find us on the map</div>
+                <p class="map-text">
+                  We’re located between Brunnenstr. and Bernauer Str., a short
+                  walk from public transport and close to the Berlin Wall
+                  Memorial.
+                </p>
+              </div>
+
+              <div class="map-actions">
+                <a
+                  href="https://maps.app.goo.gl/wnjnH1vtk4BV8KQG7"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                >
+                  Open in Google Maps
+                </a>
+                <a
+                  href="https://maps.app.goo.gl/wnjnH1vtk4BV8KQG7"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-ghost"
+                >
+                  Get directions
+                </a>
+              </div>
+
+              <p
+                style="
+                  font-size: 0.75rem;
+                  color: #6a5845;
+                  margin-top: 0.4rem;
+                  max-width: 360px;
+                "
+              >
+                If you want a live map here, you can replace this box with a
+                Google Maps &lt;iframe&gt; embed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> The Rabbit Café · Berlin</div>
+        <div class="footer-links">
+          <span>All rights reserved.</span>
+          <span>Made with ☕ in Berlin.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
